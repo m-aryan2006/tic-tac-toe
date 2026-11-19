@@ -6,6 +6,7 @@
 body {
     background-color:#194350;
     text-align: center;
+    padding-bottom: 60px; /* socials ke liye jagah */
 }
 #heading1 {
     text-align: center;
@@ -68,6 +69,40 @@ body {
     display: none; 
 }
 
+/* Socials - page ke bilkul neeche fixed + responsive */
+.socials-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+}
+
+.socials-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials-container img {
+    width: 26px;
+    height: 26px;
+    opacity: 0.85;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.socials-container img:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
 
 /* 📱 Small phones (max-width: 360px) */
 @media (max-width: 360px) {
@@ -99,6 +134,17 @@ body {
     #new-button {
         padding: 0.6rem 1rem;
         font-size: 0.85rem;
+    }
+    .socials-container {
+        gap: 14px;
+        padding: 8px 0;
+    }
+    .socials-container img {
+        width: 20px;
+        height: 20px;
+    }
+    body {
+        padding-bottom: 48px;
     }
 }
 
@@ -132,6 +178,17 @@ body {
     #new-button {
         padding: 0.7rem 1.2rem;
         font-size: 0.9rem;
+    }
+    .socials-container {
+        gap: 16px;
+        padding: 8px 0;
+    }
+    .socials-container img {
+        width: 22px;
+        height: 22px;
+    }
+    body {
+        padding-bottom: 52px;
     }
 }
 
