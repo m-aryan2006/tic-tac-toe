@@ -1,75 +1,105 @@
-*{
-    margin : 0;
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
-    background-color:#194350;
+    background-color: #194350;
     text-align: center;
-    padding-bottom: 60px; /* socials ke liye jagah */
-}
-#heading1 {
-    text-align: center;
-    color:white;
+    min-height: 100vh;
+    min-height: 100dvh; /* Mobile browsers ke address bar ke liye best */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px; /* Socials ki jagah */
 }
 
-.container{
-    justify-content: center;
+main {
+    flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 70vh;
+    justify-content: flex-start; /* Upar se shuru karega */
+    width: 100%;
+    padding: 10px;
 }
-.game {
-    justify-content: center;
+
+#heading1 {
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+/* 🎯 GAME CONTAINER - CSS GRID (Sabse solid fix) */
+.container {
     display: flex;
-    flex-wrap: wrap;
-    gap : 8px;
-    height: 60vmin;
-    width: 60vmin;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    flex-grow: 1; /* Bachi hui jagah lega */
+    margin-bottom: 1rem;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Hamesha 3 column */
+    grid-template-rows: repeat(3, 1fr);    /* Hamesha 3 row */
+    gap: 8px;
+    /* Width screen ke hisaab se set hogi, max 400px tak */
+    width: 90vw;
+    max-width: 380px;
+    aspect-ratio: 1 / 1; /* Perfect Square */
 }
 
 .box {
-    height : 18vh;
-    width : 18vh;
+    width: 100%;
+    height: 100%; /* Grid ke hisaab se stretch hoga */
     border-radius: 10px;
-    border : none;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.5);
-    font-size: 8vmin;
-    color:black;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+    font-size: 10vmin; /* Text size screen ke hisaab se */
+    color: black;
     background-color: #9DBEB8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#reset {
+/* Buttons aur Message */
+#reset, #new-button {
     background-color: black;
-    color:white;
-    padding : 1rem;
+    color: white;
+    padding: 0.8rem 1.5rem;
     border-radius: 10px;
-    border:none;
-}
-
-#new-button {
-    background-color: black;
-    color:white;
-    padding : 1rem;
-    border-radius: 10px;
-    border:none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 #msg {
-    color : rgb(234, 11, 11);
-    font-size: 5vmin;
+    color: rgb(234, 11, 11);
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .msg-container {
-    height: 15vmin;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .hide {
     display: none; 
 }
 
-/* Socials - page ke bilkul neeche fixed + responsive */
+/* Socials (Fixed bottom) */
 .socials-container {
     position: fixed;
     bottom: 0;
@@ -78,10 +108,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 22px;
+    gap: 20px;
     padding: 10px 0;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
     z-index: 100;
 }
 
@@ -92,8 +122,8 @@ body {
 }
 
 .socials-container img {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     opacity: 0.85;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -103,171 +133,47 @@ body {
     opacity: 1;
 }
 
+/* ============================================
+   📱 RESPONSIVE MEDIA QUERIES
+   ============================================ */
 
-/* 📱 Small phones (max-width: 360px) */
-@media (max-width: 360px) {
-    #heading1 {
-        font-size: 6vw;
-    }
-    #msg {
-        font-size: 4vw;
-    }
-    .msg-container {
-        height: auto;
-        padding: 0.5rem;
-    }
-    .container {
-        height: 60vh;
-    }
-    .game {
-        height: 55vmin;
-        width: 95vmin;
-        gap: 5px;
-    }
-    .box {
-        height: 15vh;
-        width: 15vh;
-        font-size: 7vmin;
-        border-radius: 6px;
-    }
-    #reset,
-    #new-button {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
-    }
-    .socials-container {
-        gap: 14px;
-        padding: 8px 0;
-    }
-    .socials-container img {
-        width: 20px;
-        height: 20px;
-    }
-    body {
-        padding-bottom: 48px;
-    }
+/* Extra Small (Foldable - closed) */
+@media (max-width: 320px) {
+    #heading1 { font-size: 1.5rem; }
+    .game { gap: 4px; width: 95vw; }
+    .box { font-size: 12vmin; border-radius: 5px; }
+    #reset, #new-button { padding: 0.6rem 1rem; font-size: 0.85rem; }
+    .socials-container img { width: 18px; height: 18px; }
+    .socials-container { gap: 12px; }
+    body { padding-bottom: 50px; }
 }
 
-/* 📱 Normal phones (max-width: 480px) */
-@media (max-width: 480px) {
-    #heading1 {
-        font-size: 5.5vw;
-        margin-top: 1rem;
-    }
-    #msg {
-        font-size: 4.5vw;
-    }
-    .msg-container {
-        height: auto;
-        padding: 0.5rem;
-    }
-    .container {
-        height: 65vh;
-    }
-    .game {
-        height: 58vmin;
-        width: 92vmin;
-        gap: 6px;
-    }
-    .box {
-        height: 16vh;
-        width: 16vh;
-        font-size: 7.5vmin;
-    }
-    #reset,
-    #new-button {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    .socials-container {
-        gap: 16px;
-        padding: 8px 0;
-    }
-    .socials-container img {
-        width: 22px;
-        height: 22px;
-    }
-    body {
-        padding-bottom: 52px;
-    }
+/* Small Phones (360px - 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+    #heading1 { font-size: 1.8rem; }
+    .game { gap: 6px; width: 90vw; }
+    .box { font-size: 11vmin; }
 }
 
-/* 📱 Large phones / small tablets (max-width: 768px) */
-@media (max-width: 768px) {
-    #heading1 {
-        font-size: 4vw;
-    }
-    #msg {
-        font-size: 3.5vw;
-    }
-    .container {
-        height: 68vh;
-    }
-    .game {
-        height: 60vmin;
-        width: 85vmin;
-        gap: 7px;
-    }
-    .box {
-        height: 17vh;
-        width: 17vh;
-        font-size: 8vmin;
-    }
-    #reset,
-    #new-button {
-        padding: 0.9rem 1.3rem;
-        font-size: 1rem;
-    }
+/* Landscape Phones */
+@media (max-height: 500px) and (orientation: landscape) {
+    main { padding: 5px; }
+    #heading1 { margin-top: 0.2rem; margin-bottom: 0.5rem; font-size: 1.2rem; }
+    .game { width: 50vh; /* Height ke hisaab se square banega */ max-width: 300px; }
+    #reset { margin-top: 0.2rem; margin-bottom: 0.5rem; padding: 0.5rem 1rem;}
+    .socials-container { padding: 5px 0; }
 }
 
-/* 💻 Tablets (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .game {
-        height: 62vmin;
-        width: 65vmin;
-        gap: 8px;
-    }
-    .box {
-        height: 18vh;
-        width: 18vh;
-        font-size: 8.5vmin;
-    }
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) {
+    #heading1 { font-size: 2.5rem; margin-top: 2rem; }
+    .game { width: 60vw; max-width: 450px; }
+    .box { font-size: 6vmin; }
 }
 
-/* 🖥️ Large screens (min-width: 1200px) */
-@media (min-width: 1200px) {
-    #heading1 {
-        font-size: 2.5rem;
-    }
-    #msg {
-        font-size: 3.5vmin;
-    }
-    .game {
-        height: 55vmin;
-        width: 55vmin;
-    }
-    .box {
-        height: 17vh;
-        width: 17vh;
-        font-size: 7vmin;
-    }
-}
-
-/* 🖥️ Extra large screens (min-width: 1600px) */
-@media (min-width: 1600px) {
-    #heading1 {
-        font-size: 3rem;
-    }
-    #msg {
-        font-size: 4vmin;
-    }
-    .game {
-        height: 50vmin;
-        width: 50vmin;
-    }
-    .box {
-        height: 15vh;
-        width: 15vh;
-        font-size: 6vmin;
-    }
+/* Large Laptops & Desktops (1025px and up) */
+@media (min-width: 1025px) {
+    #heading1 { font-size: 3rem; margin-top: 3rem; }
+    .game { width: 35vw; max-width: 400px; }
+    .box { font-size: 4rem; }
 }
