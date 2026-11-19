@@ -1,0 +1,216 @@
+*{
+    margin : 0;
+    padding: 0;
+}
+
+body {
+    background-color:#194350;
+    text-align: center;
+}
+#heading1 {
+    text-align: center;
+    color:white;
+}
+
+.container{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 70vh;
+}
+.game {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap : 8px;
+    height: 60vmin;
+    width: 60vmin;
+    align-items: center;
+}
+
+.box {
+    height : 18vh;
+    width : 18vh;
+    border-radius: 10px;
+    border : none;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+    font-size: 8vmin;
+    color:black;
+    background-color: #9DBEB8;
+}
+
+#reset {
+    background-color: black;
+    color:white;
+    padding : 1rem;
+    border-radius: 10px;
+    border:none;
+}
+
+#new-button {
+    background-color: black;
+    color:white;
+    padding : 1rem;
+    border-radius: 10px;
+    border:none;
+}
+
+#msg {
+    color : rgb(234, 11, 11);
+    font-size: 5vmin;
+}
+
+.msg-container {
+    height: 15vmin;
+}
+
+.hide {
+    display: none; 
+}
+
+
+/* 📱 Small phones (max-width: 360px) */
+@media (max-width: 360px) {
+    #heading1 {
+        font-size: 6vw;
+    }
+    #msg {
+        font-size: 4vw;
+    }
+    .msg-container {
+        height: auto;
+        padding: 0.5rem;
+    }
+    .container {
+        height: 60vh;
+    }
+    .game {
+        height: 55vmin;
+        width: 95vmin;
+        gap: 5px;
+    }
+    .box {
+        height: 15vh;
+        width: 15vh;
+        font-size: 7vmin;
+        border-radius: 6px;
+    }
+    #reset,
+    #new-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* 📱 Normal phones (max-width: 480px) */
+@media (max-width: 480px) {
+    #heading1 {
+        font-size: 5.5vw;
+        margin-top: 1rem;
+    }
+    #msg {
+        font-size: 4.5vw;
+    }
+    .msg-container {
+        height: auto;
+        padding: 0.5rem;
+    }
+    .container {
+        height: 65vh;
+    }
+    .game {
+        height: 58vmin;
+        width: 92vmin;
+        gap: 6px;
+    }
+    .box {
+        height: 16vh;
+        width: 16vh;
+        font-size: 7.5vmin;
+    }
+    #reset,
+    #new-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 📱 Large phones / small tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    #heading1 {
+        font-size: 4vw;
+    }
+    #msg {
+        font-size: 3.5vw;
+    }
+    .container {
+        height: 68vh;
+    }
+    .game {
+        height: 60vmin;
+        width: 85vmin;
+        gap: 7px;
+    }
+    .box {
+        height: 17vh;
+        width: 17vh;
+        font-size: 8vmin;
+    }
+    #reset,
+    #new-button {
+        padding: 0.9rem 1.3rem;
+        font-size: 1rem;
+    }
+}
+
+/* 💻 Tablets (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .game {
+        height: 62vmin;
+        width: 65vmin;
+        gap: 8px;
+    }
+    .box {
+        height: 18vh;
+        width: 18vh;
+        font-size: 8.5vmin;
+    }
+}
+
+/* 🖥️ Large screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+    #heading1 {
+        font-size: 2.5rem;
+    }
+    #msg {
+        font-size: 3.5vmin;
+    }
+    .game {
+        height: 55vmin;
+        width: 55vmin;
+    }
+    .box {
+        height: 17vh;
+        width: 17vh;
+        font-size: 7vmin;
+    }
+}
+
+/* 🖥️ Extra large screens (min-width: 1600px) */
+@media (min-width: 1600px) {
+    #heading1 {
+        font-size: 3rem;
+    }
+    #msg {
+        font-size: 4vmin;
+    }
+    .game {
+        height: 50vmin;
+        width: 50vmin;
+    }
+    .box {
+        height: 15vh;
+        width: 15vh;
+        font-size: 6vmin;
+    }
+}
